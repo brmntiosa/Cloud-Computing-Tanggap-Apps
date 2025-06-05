@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berita</title>
+  <link rel="icon" type="image/png" href="https://storage.googleapis.com/tanggap/logo_biru.png"/>
+  <link rel="stylesheet" href="../css/berita.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="home.html">
+        <img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo Tanggap" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="pengaduan.html">Pengaduan</a></li>
+        <li><a href="berita.html" class="active">Berita</a></li>
+        <li><a href="customer_service.html">Customer Service</a></li>
+      </ul>
+    </nav>
+    <div class="user-icons" onclick="toggleMenu()">
+      <img src="../img/akun.png" alt="Profil" />
+    </div>
+    <div id="user-menu" class="user-menu hidden">
+      <div class="menu-item">Profil Saya</div>
+      <div class="menu-item">Pengaduan Saya</div>
+      <div class="menu-item" onclick="window.location.href='logout.html'">Keluar</div>
+    </div>
+  </header>
+
+  <main class="berita-page">
+    <section class="highlight-berita">
+      <img src="../img/berita1.png" alt="Berita Utama" />
+      <div class="highlight-text">
+        <h2>Kendalikan Inflasi, Kota Bandung Tanam Cabai dan Bawang Serentak di Seluruh Kecamatan</h2>
+      </div>
+    </section>
+
+    <section class="berita-grid">
+      <article class="berita-card">
+        <img src="../img/berita1.png" alt="Berita 1" />
+        <h3>Kendalikan Inflasi, Kota Bandung Tanam Cabai dan Bawang Serentak diseluruh Kecamatan</h3>
+        <p><i>10 jam yang lalu</i></p>
+      </article>
+      <article class="berita-card">
+        <img src="../img/berita2.png" alt="Berita 2" />
+        <h3>Belum ke Bandung kalo belum ke CFD Dago (Bandung)</h3>
+        <p><i>2 hari yang lalu</i></p>
+      </article>
+      <article class="berita-card">
+        <img src="../img/berita3.png" alt="Berita 3" />
+        <h3>Bandung Week Market 2024 Siap Guncang Beachwalk Shopping Center di Bali</h3>
+        <p><i>1 hari yang lalu</i></p>
+      </article>
+      <article class="berita-card">
+        <img src="../img/berita4.png" alt="Berita 4" />
+        <h3>Disbudpar Kota Bandung Ajak Warga "Nyeni di Braga"!</h3>
+        <p><i>3 hari yang lalu</i></p>
+      </article>
+      <article class="berita-card">
+        <img src="../img/berita5.png" alt="Berita 5" />
+        <h3>Nikmati Kuliner Legendaris: Mie Kocok Bandung di Gang Ibu Eunice!</h3>
+        <p><i>1 minggu yang lalu</i></p>
+      </article>
+      <article class="berita-card">
+        <img src="../img/berita6.png" alt="Berita 6" />
+        <h3>Banyak Pasangan Nikah Muda di Bandung, Ini Penyebabnya!</h3>
+        <p><i>5 jam yang lalu</i></p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo Footer" />
+      </div>
+      <div>
+        <h4>Layanan Kami</h4>
+        <ul>
+          <li>Bantuan</li>
+          <li>Notifikasi</li>
+          <li>Kontak Kami</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kategori</h4>
+        <ul><li>Sosial</li></ul>
+      </div>
+      <div>
+        <h4>Fitur</h4>
+        <ul>
+          <li>Pengaduan</li>
+          <li>Berita</li>
+          <li>Profile</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cari</h4>
+        <input type="text" placeholder="Cari..." />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Cloud Computing. All Rights Reserved</p>
+    </div>
+  </footer>
+  <script>
+  function toggleMenu() {
+    const menu = document.getElementById('user-menu');
+    menu.classList.toggle('hidden');
+  }
+
+  // Optional: klik luar nutup menu
+  document.addEventListener('click', function (e) {
+    const menu = document.getElementById('user-menu');
+    const icon = document.querySelector('.user-icons');
+
+    if (!menu.contains(e.target) && !icon.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+</script>
+</body>
+</html>

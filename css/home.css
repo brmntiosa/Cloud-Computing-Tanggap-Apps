@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #009ef7;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+  }
+  .logo{
+    margin-left: 3rem;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 5rem;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 550;
+    font-size: 20px;
+  }
+  .user-icons img {
+    width: 40px;
+  }
+  
+  /* Hero */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background: linear-gradient(to right, #00a8ff, #74d3ff);
+    color: white;
+  }
+  .hero-text h1 {
+    font-size: 4rem;
+    margin-left: 8rem;
+    padding-top: 40px; 
+  }
+  .hero-text p {
+    white-space: pre-line;
+    padding-left: 135px; 
+    font-size: 25px;
+    line-height: 1.5;
+  }
+  .hero-image img {
+    width: 300px;
+    margin-right: 200px;
+  }
+  
+  /* Ajakan */
+  .ajakan {
+    background-color: #009ef7;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    margin: 4rem;
+    border-radius: 16px;
+  }
+  .ajakan button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #005bb5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .ajakan img {
+    width: 250px;
+  }
+  
+  /* Layanan */
+  .layanan {
+    text-align: center;
+    padding: 2rem;
+    margin-top: -50px;
+    
+  }
+  .layanan-cards {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .card {
+    background: white;           /* default putih */
+    color: #333;                 /* teks gelap default */
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .card img {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Hover effect */
+  .card:hover {
+    background: #009ef7;
+    color: white;
+    transform: translateY(-15px);
+  }
+  
+  /* Tombol dalam card */
+  .card button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #009ef7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Optional: tombol juga berubah warna saat card hover */
+  .card:hover button {
+    background: white;
+    color: #009ef7;
+    font-weight: bold;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #009ef7;
+    color: white;
+    padding: 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+  .footer-grid ul {
+    list-style: none;
+    padding-top: 0.5rem;
+  }
+  .footer-grid input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+  }
+  .footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 1rem;
+  }
+  
+  .user-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #009ef7;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 200px;
+}
+.user-menu.hidden {
+  display: none;
+}
+.menu-item {
+  color: #000000;
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-item:hover {
+  background-color: #f0f0f0;
+}

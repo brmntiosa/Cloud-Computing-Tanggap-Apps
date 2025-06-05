@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Service</title>
+  <link rel="icon" type="image/png" href="../img/logo_biru.png"/>
+  <link rel="stylesheet" href="../css/customer_service.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="home.html">
+        <img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo tanggapbucket" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="pengaduan.html">Pengaduan</a></li>
+        <li><a href="berita.html">Berita</a></li>
+        <li><a href="customer_service.html" class="active">Customer Service</a></li>
+      </ul>
+    </nav>
+    <div class="user-icons" onclick="toggleMenu()">
+      <img src="../img/akun.png" alt="Profil" />
+    </div>
+    <div id="user-menu" class="user-menu hidden">
+      <div class="menu-item">Profil Saya</div>
+      <div class="menu-item">Pengaduan Saya</div>
+      <div class="menu-item" onclick="window.location.href='logout.html'">Keluar</div>
+    </div>
+  </header>
+
+  <main class="customer-support">
+    <section class="hero-section">
+      <div class="hero-content">
+        <img src="../img/customer_service.png" alt="Contact Us Illustration" />
+        <div class="hero-text">
+          <h1>Customer Support</h1>
+          <a class="contact-btn" href="https://wa.me/6285156521726" target="_blank">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Jangan ragu untuk menghubungi Kami!</h2>
+      <p>kami akan merespons dengan cepat segala bentuk pertanyaan Anda!</p>
+    </section>
+
+    <div class="floating-icon" onclick="window.location.href='pengaduan2.html';" title="Buat Pengaduan">
+      <img src="../img/buat_pengaduan.png" alt="Buat Pengaduan" />
+    </div>    
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo Footer" />
+      </div>
+      <div>
+        <h4>Layanan Kami</h4>
+        <ul>
+          <li>Bantuan</li>
+          <li>Notifikasi</li>
+          <li>Kontak Kami</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kategori</h4>
+        <ul><li>Sosial</li></ul>
+      </div>
+      <div>
+        <h4>Fitur</h4>
+        <ul>
+          <li>Pengaduan</li>
+          <li>Berita</li>
+          <li>Profile</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cari</h4>
+        <input type="text" placeholder="Cari..." />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Cloud Computing. All Rights Reserved</p>
+    </div>
+  </footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('user-menu');
+    menu.classList.toggle('hidden');
+  }
+
+  // Optional: klik luar nutup menu
+  document.addEventListener('click', function (e) {
+    const menu = document.getElementById('user-menu');
+    const icon = document.querySelector('.user-icons');
+
+    if (!menu.contains(e.target) && !icon.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+</script>
+
+</body>
+</html>

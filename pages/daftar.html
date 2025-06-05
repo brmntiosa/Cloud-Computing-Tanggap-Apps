@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daftar</title>
+  <link rel="icon" href="../img/logo_biru.png" type="image/png" />
+  <link rel="stylesheet" href="../css/daftar.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="../img/hero-illustration.png" alt="Ilustrasi Daftar" class="illustration" />
+    </div>
+    <div class="right-panel">
+      <h2>Daftar</h2>
+      <form id="registerForm">
+        <input type="text" id="nama" placeholder="Nama Pengguna" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Kata Sandi" required />
+        <input type="password" id="confirmPassword" placeholder="Konfirmasi Kata Sandi" required />
+        <button type="submit" class="btn-masuk">Daftar</button>
+      </form>
+      <p class="daftar-text">Sudah punya akun ? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Konfirmasi password tidak cocok.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("nama", nama);
+      formData.append("email", email);
+      formData.append("password", password);
+
+      fetch("../backend/daftar.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then(res => res.text())
+        .then(response => {
+          if (response === "success") {
+            alert("Pendaftaran berhasil!");
+            window.location.href = "login.html";
+          } else {
+            alert("Gagal daftar: " + response);
+          }
+        });
+    });
+  </script>
+</body>
+</html>

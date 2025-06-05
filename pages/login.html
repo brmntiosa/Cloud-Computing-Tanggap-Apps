@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Masuk</title>
+  <link rel="icon" href="../img/logo_biru.png" type="image/png" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <style>
+    .password-container {
+      position: relative;
+    }
+
+    .password-container input {
+      width: 100%;
+      padding: 10px 40px 10px 10px; /* padding kanan untuk icon mata */
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .eye-icon {
+      position: absolute;
+      right: 10px;
+      top: 37%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      user-select: none;
+      font-size: 18px;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .btn-masuk {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-masuk:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+      display: flex;
+      height: 60vh;
+    }
+
+    .left-panel, .right-panel {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right-panel {
+      flex-direction: column;
+      padding: 40px;
+    }
+
+    .illustration {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .daftar-text {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <img src="../img/login.png" alt="Ilustrasi Login" class="illustration" />
+    </div>
+    <div class="right-panel">
+      <h2>Masuk</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required />
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Kata Sandi" required />
+          <span class="eye-icon" id="togglePassword">👁️‍🗨️</span>
+        </div>
+        <button type="submit" class="btn-masuk">Masuk</button>
+      </form>
+      <p class="daftar-text">Belum punya akun ? <a href="daftar.html">Daftar</a></p>
+    </div>
+  </div>
+
+  <script>
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      togglePassword.textContent = isPassword ? "🙈" : "👁️‍🗨️";
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("password", password);
+
+      fetch("../backend/login.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.text())
+      .then(response => {
+        if (response === "success") {
+          window.location.href = "home.html";
+        } else {
+          alert("Login gagal: " + response);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

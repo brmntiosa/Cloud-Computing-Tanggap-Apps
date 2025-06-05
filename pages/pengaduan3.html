@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengaduan - TANGGAP</title>
+  <link rel="icon" type="image/png" href="../img/logo_biru.png"/>
+  <link rel="stylesheet" href="../css/pengaduan3.css" />
+  <style>
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main.container,
+  main.main-content {
+    flex: 1;
+  }
+  .pengaduan-form{
+   width: 100vh;
+  }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="home.html">
+        <img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo Tanggap" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="pengaduan.html">Pengaduan</a></li>
+        <li><a href="berita.html" class="active">Berita</a></li>
+        <li><a href="customer_service.html">Customer Service</a></li>
+      </ul>
+    </nav>
+    <div class="user-icons" onclick="toggleMenu()">
+      <img src="../img/akun.png" alt="Profil" />
+    </div>
+    <div id="user-menu" class="user-menu hidden">
+      <div class="menu-item">Profil Saya</div>
+      <div class="menu-item">Pengaduan Saya</div>
+      <div class="menu-item" onclick="window.location.href='logout.html'">Keluar</div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <h1 class="page-title">Pengaduan</h1>
+
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+      <div class="step active">
+        <div class="circle">1</div>
+        <span>Isi Form</span>
+      </div>
+      <div class="line active"></div>
+      <div class="step active">
+        <div class="circle">2</div>
+        <span>Bukti Foto <span class="optional">(Optional)</span></span>
+      </div>
+      <div class="line"></div>
+      <div class="step">
+        <div class="circle">3</div>
+        <span>Pratinjau</span>
+      </div>
+    </div>
+
+    <!-- Upload Foto -->
+    <form class="pengaduan-form" action="../backend/upload_foto.php" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="foto">Tambahkan foto (opsional)</label>
+        <p class="form-subtext">Foto membantu kami menemukan staf dan alat terbaik untuk kebutuhan kamu sesegera mungkin</p>
+        <div class="upload-box">
+          <input type="file" id="foto" name="foto" accept="image/*" required />
+          <label for="foto" class="upload-label">
+            <img src="../img/icon_upload.png" alt="Upload Icon" />
+            <span>Klik untuk unggah foto</span>
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn-submit">Lanjutkan</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo Footer" /></div>
+      <div>
+        <h4>Layanan Kami</h4>
+        <ul>
+          <li>Bantuan</li>
+          <li>Notifikasi</li>
+          <li>Kontak Kami</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kategori</h4>
+        <ul><li>Sosial</li></ul>
+      </div>
+      <div>
+        <h4>Fitur</h4>
+        <ul>
+          <li>Pengaduan</li>
+          <li>Berita</li>
+          <li>Profile</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cari</h4>
+        <input type="text" placeholder="Cari..." />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Cloud Computing. All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('user-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function (e) {
+      const menu = document.getElementById('user-menu');
+      const icon = document.querySelector('.user-icons');
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pengaduan</title>
+  <link rel="icon" type="image/png" href="../img/logo_biru.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/pengaduan.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="home.html">
+        <img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo tanggapbucket" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="pengaduan.html">Pengaduan</a></li>
+        <li><a href="berita.html">Berita</a></li>
+        <li><a href="customer_service.html">Customer Service</a></li>
+      </ul>
+    </nav>
+    <div class="user-icons" onclick="toggleMenu()">
+      <img src="../img/akun.png" alt="Profil" />
+    </div>
+    <div id="user-menu" class="user-menu hidden">
+      <div class="menu-item">Profil Saya</div>
+      <div class="menu-item">Pengaduan Saya</div>
+      <div class="menu-item" onclick="window.location.href='logout.html'">Keluar</div>
+    </div>
+  </header>
+
+  <h1 class="page-title">Daftar Pengaduan Masyarakat</h1>
+  <div class="container" id="pengaduan-list">
+    <!-- Card akan diisi dari JavaScript -->
+  </div>
+
+  <div class="floating-icon" onclick="window.location.href='pengaduan2.html';" title="Buat Pengaduan">
+    <img src="../img/buat_pengaduan.png" alt="Buat Pengaduan" />
+  </div>  
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><img src="https://storage.googleapis.com/tanggapbucket/LOGO.png" alt="Logo Footer" /></div>
+      <div>
+        <h4>Layanan Kami</h4>
+        <ul>
+          <li>Bantuan</li>
+          <li>Notifikasi</li>
+          <li>Kontak Kami</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kategori</h4>
+        <ul><li>Sosial</li></ul>
+      </div>
+      <div>
+        <h4>Fitur</h4>
+        <ul>
+          <li>Pengaduan</li>
+          <li>Berita</li>
+          <li>Profile</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cari</h4>
+        <input type="text" placeholder="Cari..." />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Cloud Computing. All Rights Reserved</p>
+    </div>
+  </footer>
+
+<script>
+fetch("../backend/ambil_pengaduan.php")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("pengaduan-list");
+    container.innerHTML = '';
+    data.forEach(item => {
+      container.innerHTML += `
+        <div class="card">
+          <div class="user">${item.nama}</div>
+          <div class="date">${item.tanggal}</div>
+          ${item.foto ? `<img class="pengaduan-foto" src="../uploads/${item.foto}" alt="Foto Pengaduan">` : ''}
+          <div class="lokasi">📍 ${item.lokasi || 'Tidak diketahui'}</div>
+          <div class="content">${item.isi}</div>
+        </div>
+      `;
+    });
+  });
+
+function toggleMenu() {
+  const menu = document.getElementById('user-menu');
+  menu.classList.toggle('hidden');
+}
+
+document.addEventListener('click', function (e) {
+  const menu = document.getElementById('user-menu');
+  const icon = document.querySelector('.user-icons');
+  if (!menu.contains(e.target) && !icon.contains(e.target)) {
+    menu.classList.add('hidden');
+  }
+});
+</script>
+
+<style>
+  .pengaduan-foto {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+    flex: 1 1 300px;
+    max-width: 400px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .user {
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .date {
+    font-size: 0.85em;
+    color: gray;
+  }
+
+  .content {
+    margin-top: 10px;
+  }
+
+  .lokasi {
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #00aaff;
+    font-weight: 500;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    color: #333;
+  }
+</style>
+</body>
+</html>

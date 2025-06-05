@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengaduan - TANGGAP</title>
+  <link rel="icon" type="image/png" href="../img/logo_biru.png"/>
+  <link rel="stylesheet" href="../css/pengaduan4.css" />
+  <style>
+    .preview-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.preview-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.preview-header .profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  object-fit: cover;
+}
+
+.preview-content {
+  text-align: left;
+}
+
+.preview-content h3 {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.preview-content p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.btn-kirim {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #0099ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-kirim:hover {
+  background-color: #007acc;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="home.html">
+        <img src="https://storage.googleapis.com/tanggap/LOGO.png" alt="Logo Tanggap" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="pengaduan.html">Pengaduan</a></li>
+        <li><a href="berita.html" class="active">Berita</a></li>
+        <li><a href="customer_service.html">Customer Service</a></li>
+      </ul>
+    </nav>
+    <div class="user-icons" onclick="toggleMenu()">
+      <img src="../img/akun.png" alt="Profil" />
+    </div>
+    <div id="user-menu" class="user-menu hidden">
+      <div class="menu-item">Profil Saya</div>
+      <div class="menu-item">Pengaduan Saya</div>
+      <div class="menu-item" onclick="window.location.href='logout.html'">Keluar</div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <h1 class="page-title">Pratinjau Pengaduan</h1>
+  
+    <div class="preview-card">
+      <div class="preview-header">
+        <img src="../img/akun.png" alt="Foto Profil" class="profile-pic" style="width: 100px; height: 100px;" />
+        <h2 id="preview-nama">Nama Pengadu</h2>
+      </div>
+  
+      <img src="" alt="Foto Bukti" class="preview-image" id="preview-foto" />
+  
+      <div class="preview-content">
+        <h3 id="preview-judul">Judul Pengaduan</h3>
+        <p id="preview-uraian">Uraian akan tampil di sini...</p>
+        <p><strong>Lokasi:</strong> <span id="preview-lokasi">-</span></p>
+      </div>
+  
+      <button class="btn-kirim">Kirim</button>
+    </div>
+  </main>
+  
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><img src="https://storage.googleapis.com/tanggap/LOGO.png" alt="Logo Footer" /></div>
+      <div>
+        <h4>Layanan Kami</h4>
+        <ul>
+          <li>Bantuan</li>
+          <li>Notifikasi</li>
+          <li>Kontak Kami</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kategori</h4>
+        <ul><li>Sosial</li></ul>
+      </div>
+      <div>
+        <h4>Fitur</h4>
+        <ul>
+          <li>Pengaduan</li>
+          <li>Berita</li>
+          <li>Profile</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cari</h4>
+        <input type="text" placeholder="Cari..." />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Cloud Computing. All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('user-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function (e) {
+      const menu = document.getElementById('user-menu');
+      const icon = document.querySelector('.user-icons');
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    window.onload = function () {
+      // Ambil data dari localStorage
+      const nama = localStorage.getItem("pengaduan_nama");
+      const judul = localStorage.getItem("pengaduan_judul");
+      const uraian = localStorage.getItem("pengaduan_uraian");
+      const lokasi = localStorage.getItem("pengaduan_lokasi");
+      const foto = localStorage.getItem("pengaduan_foto");
+
+      // Debug log
+      console.log({ nama, judul, uraian, lokasi, foto });
+
+      // Cek apakah data tersedia
+      if (!nama || !judul || !uraian || !lokasi) {
+        alert("Data pengaduan tidak lengkap. Silakan isi kembali dari awal.");
+        window.location.href = "pengaduan2.html";
+        return;
+      }
+
+      // Tampilkan ke halaman
+      document.getElementById("preview-nama").innerText = nama;
+      document.getElementById("preview-judul").innerText = judul;
+      document.getElementById("preview-uraian").innerText = uraian;
+      document.getElementById("preview-lokasi").innerText = lokasi;
+
+      const img = document.getElementById("preview-foto");
+      if (foto && foto !== "") {
+        img.src = "../uploads/" + foto;
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+
+      // Saat tombol Kirim ditekan
+      document.querySelector(".btn-kirim").addEventListener("click", function () {
+        const data = {
+          nama: nama,
+          judul: judul,
+          uraian: uraian,
+          lokasi: lokasi,
+          foto_name: foto
+        };
+
+        fetch("../backend/proses_pengaduan.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        })
+        .then(res => res.text())
+        .then(res => {
+          if (res.toLowerCase().includes("success")) {
+            alert("Pengaduan berhasil dikirim!");
+            localStorage.clear();
+            window.location.href = "pengaduan.html";
+          } else {
+            alert("Gagal mengirim pengaduan:\n" + res);
+          }
+        });
+      });
+    };
+  </script>
+</body>
+</html>

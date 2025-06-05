@@ -1,0 +1,255 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+ /* Navbar */
+ .navbar {
+  background-color: #009ef7;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+}
+.logo{
+  margin-left: 3rem;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 6rem;
+}
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 750;
+  font-size: 20px;
+}
+.user-icons img {
+  width: 40px;
+}
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Main Content */
+  .main-content {
+    padding: 40px 20px;
+  }
+  
+  .page-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+.pengaduan-section h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+  /* Step Indicator */
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: gray;
+  }
+  
+  .step.active {
+    color: #0ea5e9;
+  }
+  
+  .circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .step.active .circle {
+    background-color: #0ea5e9;
+    color: white;
+    border-color: #0ea5e9;
+  }
+  
+  .line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ccc;
+  }
+
+  .line.active {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #0ea5e9;
+  }
+
+.pengaduan-card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-details p {
+  margin: 0;
+  color: gray;
+  font-size: 14px;
+}
+
+.pengaduan-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.pengaduan-content h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.pengaduan-content p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  padding-top: 10px;
+}
+
+.btn-kirim {
+  display: inline-block;
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: sans-serif;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+  
+  /* Button */
+  .btn-submit {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0284c7;
+  }
+  
+   /* Footer */
+   .footer {
+    background-color: #009ef7;
+    color: white;
+    padding: 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+  .footer-grid ul {
+    list-style: none;
+    padding-top: 0.5rem;
+  }
+  .footer-grid input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+  }
+  .footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 1rem;
+  }
+      .user-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #009ef7;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 200px;
+}
+.user-menu.hidden {
+  display: none;
+}
+.menu-item {
+  color: #000000;
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-item:hover {
+  background-color: #f0f0f0;
+}

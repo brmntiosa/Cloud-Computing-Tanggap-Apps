@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #ffffff;
+}
+
+.container {
+  display: flex;
+  width: 900px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.left-panel {
+  width: 50%;
+  background-color: #00A3E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.left-panel .illustration {
+  width: 100%;
+  max-width: 300px;
+}
+
+.right-panel {
+  width: 50%;
+  padding: 40px;
+  background: #fff;
+}
+
+.right-panel h2 {
+  margin-bottom: 20px;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="nama"],
+form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #4FC3F7;
+  border-radius: 8px;
+}
+form input[type="konfirmasi_password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #4FC3F7;
+  border-radius: 8px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.btn-masuk {
+  width: 100%;
+  background-color: #009ef7;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.daftar-text {
+  margin-top: 10px;
+}
+
+.daftar-text a {
+  color: #009ef7;
+  text-decoration: none;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.separator hr {
+  flex: 1;
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.separator span {
+  margin: 0 10px;
+  color: #999;
+}
+
